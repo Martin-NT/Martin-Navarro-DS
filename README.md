@@ -38,6 +38,9 @@ Estudio detallado de los 5 principios SOLID con:
 - Casos de mal uso para contrastar
 - Material de estudio para comprensión profunda de cada principio
 
+### ⚡ `Preguntas_Final/`
+Consignas y respuestas de preguntas dadas por el profesor sobre Patrones de Diseño
+
 ### 📖 `Cursado_2024/`
 Material oficial de la cátedra incluyendo:
 - Ejercicios desarrollados en clase
