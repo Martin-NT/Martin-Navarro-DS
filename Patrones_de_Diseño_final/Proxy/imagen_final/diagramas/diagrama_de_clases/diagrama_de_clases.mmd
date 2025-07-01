@@ -1,0 +1,23 @@
+classDiagram
+direction TB
+    class Imagen {
+	    +mostrar()
+    }
+
+    class ImagenReal {
+	    -nombre_archivo
+	    -cargar_desde_disco()
+	    +mostrar()
+    }
+
+    class ProxyImagen {
+	    -nombre_archivo
+	    -imagen_real
+	    +mostrar()
+    }
+
+	<<interface>> Imagen
+
+    Imagen <|.. ImagenReal : implementa
+    Imagen <|.. ProxyImagen : implementa
+    ProxyImagen --> ImagenReal : usa

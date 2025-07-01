@@ -1,0 +1,47 @@
+classDiagram
+direction TB
+
+class Producto {
+    -nombre: str
+    -precio: float
+    +obtener_precio(): float
+    +obtener_nombre(): str
+}
+
+class Bebida {
+    +obtener_precio(): float
+}
+
+class Comida {
+    +obtener_precio(): float
+}
+
+Producto <|-- Bebida
+Producto <|-- Comida
+
+class EstrategiaDescuento {
+    <<interface>>
+    +calcular_total(productos): float
+}
+
+class SinDescuento {
+    +calcular_total(productos): float
+}
+
+class DescuentoPorcentaje {
+    -porcentaje: float
+    +calcular_total(productos): float
+}
+
+EstrategiaDescuento <|.. SinDescuento
+EstrategiaDescuento <|.. DescuentoPorcentaje
+
+class Pedido {
+    -productos: list
+    -estrategia_descuento: EstrategiaDescuento
+    +agregar_producto(producto): void
+    +calcular_total(): float
+}
+
+Pedido --> EstrategiaDescuento
+Pedido --> Producto

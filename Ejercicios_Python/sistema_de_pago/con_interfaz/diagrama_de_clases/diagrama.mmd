@@ -1,0 +1,28 @@
+classDiagram
+direction TB
+    class ProcesadorPago {
+	    +pagar(monto)
+    }
+
+    class TarjetaCredito {
+	    +pagar(monto)
+    }
+
+    class MercadoPago {
+	    +pagar(monto)
+    }
+
+    class Criptomoneda {
+	    +pagar(monto)
+    }
+
+    class ServicioDeCobro {
+	    +realizar_pago(monto)
+    }
+
+	<<interface>> ProcesadorPago
+
+    ServicioDeCobro --> ProcesadorPago : utiliza
+    ProcesadorPago <|-- TarjetaCredito
+    ProcesadorPago <|-- MercadoPago
+    ProcesadorPago <|-- Criptomoneda

@@ -1,0 +1,33 @@
+classDiagram
+    class FacadeCine {
+        - Television television
+        - ReproductorDVD reproductorDVD
+        - SistemaSonido sistemaSonido
+        - float tiempo_inicio
+        + iniciar_pelicula(volumen)
+        + finalizar_pelicula()
+    }
+
+    class Television {
+        + encender()
+        + apagar()
+        + cambiar_canal()
+    }
+
+    class ReproductorDVD {
+        + encender()
+        + apagar()
+        + reproducir()
+        + detener()
+    }
+
+    class SistemaSonido {
+        + encender()
+        + apagar()
+        + volumen(nivel)
+    }
+
+    %% Relaciones de composición
+    FacadeCine *-- Television : contiene
+    FacadeCine *-- ReproductorDVD : contiene
+    FacadeCine *-- SistemaSonido : contiene

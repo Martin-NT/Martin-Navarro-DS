@@ -1,0 +1,51 @@
+classDiagram
+direction TB
+
+class Transporte {
+    +reservar(destino)
+    +calcular_costo(destino): float
+}
+
+class Avion {
+    +reservar(destino)
+    +calcular_costo(destino): float
+}
+
+class Tren {
+    +reservar(destino)
+    +calcular_costo(destino): float
+}
+
+class Bus {
+    +reservar(destino)
+    +calcular_costo(destino): float
+}
+
+class Notificador {
+    +notificar(mensaje, destinatario)
+}
+
+class Email {
+    +notificar(mensaje, destinatario)
+}
+
+class SMS {
+    +notificar(mensaje, destinatario)
+}
+
+class ServicioReserva {
+    +realizar_reserva(destino, cliente, transporte: Transporte, notificador: Notificador)
+}
+
+<<interface>> Transporte
+<<interface>> Notificador
+
+Transporte <|-- Avion
+Transporte <|-- Tren
+Transporte <|-- Bus
+
+Notificador <|-- Email
+Notificador <|-- SMS
+
+ServicioReserva --> Transporte : utiliza
+ServicioReserva --> Notificador : utiliza

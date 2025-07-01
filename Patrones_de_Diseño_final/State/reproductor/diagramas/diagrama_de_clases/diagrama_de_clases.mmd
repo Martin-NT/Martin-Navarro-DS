@@ -1,0 +1,52 @@
+classDiagram
+direction TB
+
+    class EstadoReproductor {
+	    +reproducir(reproductor)
+	    +pausar(reproductor)
+	    +detener(reproductor)
+    }
+
+    class EstadoReproduciendo {
+	    +reproducir(reproductor)
+	    +pausar(reproductor)
+	    +detener(reproductor)
+    }
+
+    class EstadoPausado {
+	    +reproducir(reproductor)
+	    +pausar(reproductor)
+	    +detener(reproductor)
+    }
+
+    class EstadoDetenido {
+	    +reproducir(reproductor)
+	    +pausar(reproductor)
+	    +detener(reproductor)
+    }
+
+    class Reproductor {
+	    -estado_actual: EstadoReproductor
+	    -estado_reproduciendo: EstadoReproduciendo
+	    -estado_pausado: EstadoPausado
+	    -estado_detenido: EstadoDetenido
+	    +cambiar_estado(EstadoReproductor)
+	    +reproducir()
+	    +pausar()
+	    +detener()
+	    +avanzar_cancion()
+	    +retroceder_cancion()
+    }
+
+    %% Declaración de interfaz
+    <<interface>> EstadoReproductor
+
+    %% Relaciones de implementación (las clases concretas implementan la interfaz)
+    EstadoReproductor <|.. EstadoReproduciendo : implementa
+    EstadoReproductor <|.. EstadoPausado : implementa
+    EstadoReproductor <|.. EstadoDetenido : implementa
+
+    %% Relaciones de composición (Reproductor crea y gestiona los estados)
+    Reproductor *-- EstadoReproduciendo : compone
+    Reproductor *-- EstadoPausado : compone
+    Reproductor *-- EstadoDetenido : compone

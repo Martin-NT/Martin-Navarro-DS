@@ -1,0 +1,39 @@
+classDiagram
+    class Persona {
+        <<abstract>>
+        -nombre: str
+        -dni: str
+        +get_datos()
+    }
+
+    class Cliente {
+        -email: str
+        +get_datos()
+    }
+
+    class Administrador {
+        -rol: str
+        +get_datos()
+    }
+
+    class Factura {
+        -numero: int
+        -cliente: Cliente
+        -detalles: List~DetalleFactura~
+        +agregar_detalle(detalle)
+        +calcular_total()
+        +mostrar_factura()
+    }
+
+    class DetalleFactura {
+        -producto: str
+        -cantidad: int
+        -precio_unitario: float
+        +calcular_subtotal()
+        +mostrar_detalle()
+    }
+
+    Persona <|-- Cliente
+    Persona <|-- Administrador
+    Factura --> Cliente : "emite a"
+    Factura *-- DetalleFactura : "compone"

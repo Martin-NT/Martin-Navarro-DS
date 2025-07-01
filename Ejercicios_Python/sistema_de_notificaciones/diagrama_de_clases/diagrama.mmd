@@ -1,0 +1,29 @@
+classDiagram
+direction TB
+
+class Notificacion {
+    <<interface>>
+    +enviar(mensaje, destinatario)
+}
+
+class EmailNotificacion {
+    +enviar(mensaje, destinatario)
+}
+
+class SMSNotificacion {
+    +enviar(mensaje, destinatario)
+}
+
+class WhatsappNotificacion {
+    +enviar(mensaje, destinatario)
+}
+
+class ServicioNotificador {
+    +notificar(mensaje, destinatario)
+}
+
+Notificacion <|.. EmailNotificacion
+Notificacion <|.. SMSNotificacion
+Notificacion <|.. WhatsappNotificacion
+ServicioNotificador --> Notificacion : utiliza
+
