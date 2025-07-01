@@ -1,0 +1,23 @@
+sequenceDiagram
+    autonumber
+    actor Cliente
+    participant Reproductor
+    participant EstadoReproductor
+    participant EstadoReproduciendo
+    participant EstadoPausado
+    participant EstadoDetenido
+
+    Cliente ->> Reproductor: reproducir()
+    Reproductor ->> EstadoReproductor: reproducir(self)
+    alt Estado actual = EstadoDetenido
+        EstadoReproductor ->> EstadoDetenido: reproducir(reproductor)
+        EstadoDetenido ->> Reproductor: cambiar_estado(EstadoReproduciendo)
+        Reproductor ->> EstadoReproduciendo: (estado_actual = EstadoReproduciendo)
+    else Estado actual = EstadoPausado
+        EstadoReproductor ->> EstadoPausado: reproducir(reproductor)
+        EstadoPausado ->> Reproductor: cambiar_estado(EstadoReproduciendo)
+        Reproductor ->> EstadoReproduciendo: (estado_actual = EstadoReproduciendo)
+    else Estado actual = EstadoReproduciendo
+        EstadoReproductor ->> EstadoReproduciendo: reproducir(reproductor)
+        EstadoReproduciendo -->> Reproductor: "Ya se está reproduciendo"
+    end
