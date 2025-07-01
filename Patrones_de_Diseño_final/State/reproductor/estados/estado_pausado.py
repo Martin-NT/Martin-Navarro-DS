@@ -11,3 +11,9 @@ class EstadoPausado(EstadoReproductor):
     def detener(self, reproductor):
         print("\n⏹️  Deteniendo reproducción desde pausa.")
         reproductor.cambiar_estado(reproductor.estado_detenido)
+        
+    def avanzar_cancion(self, reproductor):
+        print("\n⚠️  No se puede avanzar. Está pausado.")
+
+    def retroceder_cancion(self, reproductor):
+        print("\n⚠️  No se puede retroceder. Está pausado.")

@@ -23,13 +23,9 @@ class Reproductor:
 
     def detener(self):
         self.estado_actual.detener(self)
-
+        
     def avanzar_cancion(self):
-        print("\n⏭️  Avanzando canción...")
-        if isinstance(self.estado_actual, EstadoReproduciendo):
-            print("\n🎵 Reproduciendo siguiente canción")
+        self.estado_actual.avanzar_cancion(self)
 
     def retroceder_cancion(self):
-        print("\n⏮️  Retrocediendo canción...")
-        if isinstance(self.estado_actual, EstadoReproduciendo):
-            print("\n🎵 Reproduciendo canción anterior")
+        self.estado_actual.retroceder_cancion(self)

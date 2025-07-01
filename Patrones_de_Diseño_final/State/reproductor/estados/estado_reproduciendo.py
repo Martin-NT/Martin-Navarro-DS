@@ -11,3 +11,11 @@ class EstadoReproduciendo(EstadoReproductor):
     def detener(self, reproductor):
         print("\n⏹️  Deteniendo reproducción.")
         reproductor.cambiar_estado(reproductor.estado_detenido)
+        
+    def avanzar_cancion(self, reproductor):
+        print("\n⏭️  Avanzando canción...")
+        print("\n🎵 Reproduciendo siguiente canción")
+
+    def retroceder_cancion(self, reproductor):
+        print("\n⏮️  Retrocediendo canción...")
+        print("\n🎵 Reproduciendo canción anterior")

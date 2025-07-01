@@ -10,3 +10,9 @@ class EstadoDetenido(EstadoReproductor):
 
     def detener(self, reproductor):
         print("\n⚠️  Ya está detenido.")
+        
+    def avanzar_cancion(self, reproductor):
+        print("\n⚠️  No se puede avanzar. Está detenido.")
+
+    def retroceder_cancion(self, reproductor):
+        print("\n⚠️  No se puede retroceder. Está detenido.")

@@ -12,3 +12,11 @@ class EstadoReproductor(ABC):
     @abstractmethod
     def detener(self, reproductor):
         pass
+    
+    @abstractmethod
+    def avanzar_cancion(self):
+        pass
+
+    @abstractmethod
+    def retroceder_cancion(self):
+        pass
